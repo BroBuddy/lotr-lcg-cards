@@ -1,11 +1,15 @@
-import { getListOfCycles } from '../service/data'
+import { countAllCards, getListOfCycles } from '../service/data'
 
 const CycleList = () => {
     const cycles: any[] = getListOfCycles()
 
     return (
-        <>
+        <div className="card-list">
             <h1>Lord of the rings - LCG</h1>
+
+            <button type="button" disabled>
+                {countAllCards()} cards
+            </button>
 
             {cycles &&
                 cycles.map((cycle: any, index: number) => {
@@ -27,7 +31,7 @@ const CycleList = () => {
                         </div>
                     )
                 })}
-        </>
+        </div>
     )
 }
 

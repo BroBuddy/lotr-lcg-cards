@@ -15,9 +15,16 @@ const CardList = () => {
     return (
         <div className="card-list">
             <h1>
-                <a href="../">&larr; {scenario && scenario.title}</a> (
-                {cardsAmount} Cards)
+                <a href="../">&larr; {scenario && scenario.title}</a>
             </h1>
+
+            <button type="button" disabled>
+                {cardsAmount} cards
+            </button>
+
+            <button type="button" onClick={handlePrint}>
+                Print {pages} pages
+            </button>
 
             <ol>
                 {scenario &&
@@ -35,10 +42,6 @@ const CardList = () => {
                         )
                     })}
             </ol>
-
-            <button type="button" onClick={handlePrint}>
-                Print {pages} pages
-            </button>
 
             {scenario &&
                 scenario.scenarios.map((scenario: any, index: number) => {
